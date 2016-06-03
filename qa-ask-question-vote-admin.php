@@ -10,15 +10,24 @@ class qa_ask_question_vote_admin
 	{
 		switch ($option) {
 			case 'qa_ask_question_vote_css':
-				return '#qa-ask-question-vote {
+				return '.qa-ask-question-vote {
 	margin-bottom: 50px;
 	padding-left: 80px;
 }
 .qa-ask-question-vote-button {
 	background-color: #f95225;
 	color: #fff;
-	text-align: center
-	padding: 20px 5px;
+	text-align: center;
+	padding: 5px 20px;
+	border: 0;
+	margin-left: 20px;
+}
+.qa-ask-question-unvote-button {
+	background-color: #fff;
+	color: #f95225;
+	text-align: center;
+	padding: 5px 20px;
+	border: 0;
 }
 .qa-q-view {
 	margin-bottom: 0;
