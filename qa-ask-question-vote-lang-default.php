@@ -15,6 +15,10 @@
 
 	return array(
 		// default
+		'caption_before' => 'Caption before voting',
+		'caption_after' => 'Caption after voting',
+		'vote' => 'vote',
+		'unvote' => 'canceld',
 		'custom_css' => 'Vote button custom css',
 	);
 
