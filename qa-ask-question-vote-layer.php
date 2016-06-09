@@ -61,8 +61,11 @@ class qa_html_theme_layer extends qa_html_theme_base {
 				$this->post_button($post, 'vote_up_tags', qa_lang_html('qa_ask_question_vote_lang/unvote'), $unvote_class);
 				break;
 
-			case 'enabled':
 			case 'voted_down':
+				$this->vote_caption('before', $caption_class);
+				$this->post_button($post, 'vote_down_tags', qa_lang_html('qa_ask_question_vote_lang/vote'), $vote_class);
+				break;
+			case 'enabled':
 			default:
 				$this->vote_caption('before', $caption_class);
 				$this->post_button($post, 'vote_up_tags', qa_lang_html('qa_ask_question_vote_lang/vote'), $vote_class);
@@ -86,5 +89,12 @@ class qa_html_theme_layer extends qa_html_theme_base {
 
 	function footer() {
 		qa_html_theme_base::footer();
+		$this->output('<script>');
+		$this->output('$(function(){');
+		$this->output('$(".qa-main input").click(function(){');
+		$this->output('$(".tipsy").hide();');
+		$this->output('});');
+		$this->output('});');
+		$this->output('</script>');
 	}
 }
