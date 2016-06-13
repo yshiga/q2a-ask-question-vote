@@ -15,8 +15,10 @@
 
 	return array(
 		// default
-		'caption_before' => '投票前キャプション',
-		'caption_after' => '投票後キャプション',
+		'caption_before' => '投票前キャプション(質問)',
+		'caption_after' => '投票後キャプション(質問)',
+		'caption_answer_before' => '投票前キャプション(回答)',
+		'caption_answer_after' => '投票後キャプション(回答)',
 		'vote' => '支持する',
 		'unvote' => '支持を取り消す',
 		'custom_css' => 'カスタム CSS',

@@ -25,19 +25,22 @@ if(qa_is_logged_in()) {
 	echo '';
 }
 
-class qa_ask_question_vote_ajax {
+class qa_ask_question_vote_ajax
+{
 	public $postid;
 	public $userid;
 	public $cookieid;
 
-	function qa_ask_question_vote_ajax() {
+	function qa_ask_question_vote_ajax()
+	{
 		$this->postid = qa_post_text('postid');
 		$this->userid = qa_get_logged_in_userid();
 		$this->cookieid = qa_cookie_get();
 
 		header("Content-Type: text/html; charset=UTF-8");
 	}
-	function response() {
+	function response()
+	{
 
 		$post=qa_db_select_with_pending(qa_db_full_post_selectspec($this->userid, $this->postid));
 
@@ -48,7 +51,12 @@ class qa_ask_question_vote_ajax {
 		$themeclass=qa_load_theme_class(qa_get_site_theme(), 'voting', null, null);
 
 		// echo "QA_AJAX_RESPONSE\n1\n";
-		$themeclass->qa_vote_button($fields);
+		if($fields["raw"]["type"] === "A") {
+			$type = "answer";
+		} else {
+			$type = "question";
+		}
+		$themeclass->qa_vote_button($fields, $type);
 		// print_r($post);
 		// print_r($fields);
 	}

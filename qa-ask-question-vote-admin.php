@@ -31,11 +31,18 @@ class qa_ask_question_vote_admin
 }
 .qa-q-view {
 	margin-bottom: 0;
+}
+.qa-ask-answer-vote {
+	margin-top: 20px;
 }';
 			case 'qa_ask_question_caption_before':
 				return 'If I think as a good question -> ';
 			case 'qa_ask_question_caption_after':
 				return 'This question is being supported.';
+			case 'qa_ask_answer_caption_before':
+				return 'If I think as a good answer -> ';
+			case 'qa_ask_answer_caption_after':
+				return 'This answer is being supported.';
 			default:
 				return;
 		}
@@ -53,6 +60,8 @@ class qa_ask_question_vote_admin
 		if (qa_clicked('qa_ask_question_vote_save')) {
 			qa_opt('qa_ask_question_caption_before', qa_post_text('qa_ask_question_caption_before'));
 			qa_opt('qa_ask_question_caption_after', qa_post_text('qa_ask_question_caption_after'));
+			qa_opt('qa_ask_answer_caption_before', qa_post_text('qa_ask_answer_caption_before'));
+			qa_opt('qa_ask_answer_caption_after', qa_post_text('qa_ask_answer_caption_after'));
 			qa_opt('qa_ask_question_vote_css', qa_post_text('qa_ask_question_vote_css'));
 			$ok = qa_lang('admin/options_saved');
 		}
@@ -71,6 +80,20 @@ class qa_ask_question_vote_admin
 			'label' => qa_lang('qa_ask_question_vote_lang/caption_after'),
 			'tags' => 'NAME="qa_ask_question_caption_after"',
 			'value' => qa_opt('qa_ask_question_caption_after'),
+			'type' => 'text',
+		);
+
+		$fields[] = array(
+			'label' => qa_lang('qa_ask_question_vote_lang/caption_answer_before'),
+			'tags' => 'NAME="qa_ask_answer_caption_before"',
+			'value' => qa_opt('qa_ask_answer_caption_before'),
+			'type' => 'text',
+		);
+
+		$fields[] = array(
+			'label' => qa_lang('qa_ask_question_vote_lang/caption_answer_after'),
+			'tags' => 'NAME="qa_ask_answer_caption_after"',
+			'value' => qa_opt('qa_ask_answer_caption_after'),
 			'type' => 'text',
 		);
 
