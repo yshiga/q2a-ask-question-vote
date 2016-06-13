@@ -15,7 +15,7 @@ function qa_vote_click(elem)
 		function(lines) {
 			if (lines[0]=='1') {
 				qa_set_inner_html(document.getElementById('voting_'+postid), 'voting', lines.slice(1).join("\n"));
-				changeAskVoteButton();
+				changeAskVoteButton(postid);
 			} else if (lines[0]=='0') {
 				var mess=document.getElementById('errorbox');
 
@@ -38,7 +38,7 @@ function qa_vote_click(elem)
 	return false;
 }
 
-function changeAskVoteButton() {
+function changeAskVoteButton(postid) {
 	var formelem = document.getElementById('qv_' + postid);
 	jQuery.post(qv_url, { postid: postid }, function(response) {
 			formelem.innerHTML = response;
