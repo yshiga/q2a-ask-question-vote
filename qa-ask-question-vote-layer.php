@@ -62,18 +62,18 @@ class qa_html_theme_layer extends qa_html_theme_base {
 
 		qa_html_theme_base::a_item_buttons($a_item);
 
-		if (isset($a_item['main_form_tags'])) {
-			$this->output('<form '.$a_item['main_form_tags']. '">'); // form for voting buttons
-		}
-
-		$this->output('<div class="qa-ask-answer-vote" id="qv_' . $a_item["raw"]["postid"] .'">');
-		$this->qa_vote_button($a_item, "answer");
-		$this->output('</div>');
-
-		if (isset($a_item['main_form_tags'])) {
-			$this->form_hidden_elements(@$a_item['voting_form_hidden']);
-			$this->output('</form>');
-		}
+		// if (isset($a_item['main_form_tags'])) {
+		// 	$this->output('<form '.$a_item['main_form_tags']. '">'); // form for voting buttons
+		// }
+		//
+		// $this->output('<div class="qa-ask-answer-vote" id="qv_' . $a_item["raw"]["postid"] .'">');
+		// $this->qa_vote_button($a_item, "answer");
+		// $this->output('</div>');
+		//
+		// if (isset($a_item['main_form_tags'])) {
+		// 	$this->form_hidden_elements(@$a_item['voting_form_hidden']);
+		// 	$this->output('</form>');
+		// }
 	}
 
 	/*
